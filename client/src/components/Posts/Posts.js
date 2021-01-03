@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, CircularProgress } from '@material-ui/core';
+import { Grid, CircularProgress, Typography } from '@material-ui/core';
 
 import { useSelector } from 'react-redux';
 
@@ -14,7 +14,7 @@ const Posts = ({ setcurrentId }) => {
   console.log(posts);
 
   return !posts.length ? (
-    <CircularProgress />
+    <div></div>
   ) : (
     <Grid
       className={classes.container}
