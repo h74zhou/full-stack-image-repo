@@ -5,10 +5,7 @@ import { useDispatch } from 'react-redux';
 import { getPosts } from './actions/posts';
 import Posts from './components/Posts/Posts';
 import Form from './components/Form/Form';
-import memories from './images/memories.png';
 import useStyles from './styles';
-
-import CameraAltIcon from '@material-ui/icons/CameraAlt';
 
 const App = () => {
   const [currentId, setcurrentId] = useState(null);
@@ -16,7 +13,6 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('get posts called, useeffect');
     dispatch(getPosts());
   }, [currentId, dispatch]);
 
@@ -26,13 +22,6 @@ const App = () => {
         <Typography className={classes.heading} variant='h2' align='center'>
           Full Stack Image Repo
         </Typography>
-        {/* <CameraAltIcon></CameraAltIcon> */}
-        {/* <img
-          className={classes.image}
-          src={memories}
-          alt='memories'
-          height='60'
-        /> */}
       </AppBar>
       <Grow in>
         <Container>

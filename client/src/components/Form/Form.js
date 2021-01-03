@@ -6,8 +6,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './styles';
 import { createPost, updatePost } from '../../actions/posts';
 
-// Get current ID of the post we're on
-
 const Form = ({ currentId, setcurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -15,7 +13,6 @@ const Form = ({ currentId, setcurrentId }) => {
     creator: '',
     title: '',
     message: '',
-    tags: '',
     selectedFile: '',
   });
 
@@ -44,7 +41,6 @@ const Form = ({ currentId, setcurrentId }) => {
       creator: '',
       title: '',
       message: '',
-      tags: '',
       selectedFile: '',
     });
   };
@@ -62,7 +58,7 @@ const Form = ({ currentId, setcurrentId }) => {
         </Typography>
         <TextField
           name='creator'
-          variant='outlined'
+          variant='standard'
           label='Creator'
           fullWidth
           value={postData.creator}
@@ -72,7 +68,7 @@ const Form = ({ currentId, setcurrentId }) => {
         />
         <TextField
           name='title'
-          variant='outlined'
+          variant='standard'
           label='Title'
           fullWidth
           value={postData.title}
@@ -80,21 +76,13 @@ const Form = ({ currentId, setcurrentId }) => {
         />
         <TextField
           name='message'
-          variant='outlined'
+          variant='standard'
           label='Message'
           fullWidth
           value={postData.message}
           onChange={(e) =>
             setPostData({ ...postData, message: e.target.value })
           }
-        />
-        <TextField
-          name='tags'
-          variant='outlined'
-          label='Tags'
-          fullWidth
-          value={postData.tags}
-          onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
         />
         <div className={classes.fileInput}>
           <FileBase
