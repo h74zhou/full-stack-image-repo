@@ -17,6 +17,8 @@ import { deletePost } from '../../../actions/posts';
 const Post = ({ post, setcurrentId }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const user = JSON.parse(localStorage.getItem('profile'));
+
   return (
     <Card className={classes.card}>
       <CardMedia
@@ -29,7 +31,7 @@ const Post = ({ post, setcurrentId }) => {
       </Typography>
       <CardContent style={{ paddingTop: 0 }}>
         <Typography variant='body2' color='textSecondary' component='p'>
-          By: {post.creator}
+          By: {post.name}
         </Typography>
       </CardContent>
       <CardContent>
@@ -38,23 +40,29 @@ const Post = ({ post, setcurrentId }) => {
         </Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Button
-          size='small'
-          color='primary'
-          onClick={() => setcurrentId(post._id)}
-        >
-          <EditIcon fontSize='small' />
-          &nbsp; Edit &nbsp;
-          {post.likeCount}
-        </Button>
-        <Button
-          size='small'
-          color='primary'
-          onClick={() => dispatch(deletePost(post._id))}
-        >
-          <DeleteIcon fontSize='small' />
-          Delete
-        </Button>
+        {user?.result?._id === post?.creator ? (
+          <Button
+            size='small'
+            color='primary'
+            onClick={() => setcurrentId(post._id)}
+          >
+            <EditIcon fontSize='small' />
+            &nbsp; Edit &nbsp;
+          </Button>
+        ) : (
+          <Button></Button>
+        )}
+
+        {user?.result?._id === post?.creator && (
+          <Button
+            size='small'
+            color='primary'
+            onClick={() => dispatch(deletePost(post._id))}
+          >
+            <DeleteIcon fontSize='small' />
+            Delete
+          </Button>
+        )}
       </CardActions>
     </Card>
   );

@@ -9,8 +9,8 @@ import { createPost, updatePost } from '../../actions/posts';
 const Form = ({ currentId, setcurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
+  const user = JSON.parse(localStorage.getItem('profile'));
   const [postData, setPostData] = useState({
-    creator: '',
     title: '',
     message: '',
     selectedFile: '',
@@ -28,9 +28,11 @@ const Form = ({ currentId, setcurrentId }) => {
     e.preventDefault();
 
     if (currentId) {
-      dispatch(updatePost(currentId, postData));
+      dispatch(
+        updatePost(currentId, { ...postData, name: user?.result?.name })
+      );
     } else {
-      dispatch(createPost(postData));
+      dispatch(createPost({ ...postData, name: user?.result?.name }));
     }
     clear();
   };
@@ -38,12 +40,21 @@ const Form = ({ currentId, setcurrentId }) => {
   const clear = () => {
     setcurrentId(null);
     setPostData({
-      creator: '',
       title: '',
       message: '',
       selectedFile: '',
     });
   };
+
+  if (!user?.result?.name) {
+    return (
+      <Paper className={classes.paper}>
+        <Typography variant='h6' align='center'>
+          Please Login to Submit New Photos
+        </Typography>
+      </Paper>
+    );
+  }
 
   return (
     <Paper className={classes.paper}>
@@ -56,16 +67,6 @@ const Form = ({ currentId, setcurrentId }) => {
         <Typography variant='h6'>
           {currentId ? 'Editing' : 'Submit'} an Image Post
         </Typography>
-        <TextField
-          name='creator'
-          variant='standard'
-          label='Creator'
-          fullWidth
-          value={postData.creator}
-          onChange={(e) =>
-            setPostData({ ...postData, creator: e.target.value })
-          }
-        />
         <TextField
           name='title'
           variant='standard'

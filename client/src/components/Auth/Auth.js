@@ -8,8 +8,6 @@ import {
   TextField,
 } from '@material-ui/core';
 import Input from './Input';
-import Icon from './Icon';
-import { GoogleLogin } from 'react-google-login';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { signup, login } from '../../actions/auth';
@@ -37,10 +35,8 @@ function Auth() {
     e.preventDefault();
 
     if (isSignup) {
-      console.log('dispatched sign up');
       dispatch(signup(formData, history));
     } else {
-      console.log('dispatched login');
       dispatch(login(formData, history));
     }
 
@@ -58,14 +54,6 @@ function Auth() {
   const switchSignUp = () => {
     setIsSignup(!isSignup);
     setShowPassword(false);
-  };
-
-  const googleSuccess = (res) => {
-    console.log(res);
-  };
-
-  const googleFailure = () => {
-    console.log('GOOGLE LOG IN WAS UNSUCCESSFUL');
   };
 
   return (
@@ -122,28 +110,8 @@ function Auth() {
             color='primary'
             className={classes.submit}
           >
-            {isSignup ? 'Sign Up' : 'Log In With Email'}
+            {isSignup ? 'Sign Up' : 'Log In'}
           </Button>
-          <GoogleLogin
-            clientId='GOOGLE ID'
-            render={(renderProps) => (
-              <Button
-                className={classes.googleButton}
-                color='primary'
-                fullWidth
-                onClick={renderProps.onClick}
-                disabled={renderProps.disabled}
-                startIcon={<Icon></Icon>}
-                variant='contained'
-              >
-                {' '}
-                Log In With Google
-              </Button>
-            )}
-            onSuccess={googleSuccess}
-            onFailure={googleFailure}
-            cookiePolicy='single_host_origin'
-          ></GoogleLogin>
           <Grid container justify='flex-end'>
             <Grid item>
               <Button onClick={() => switchSignUp()}>

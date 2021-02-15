@@ -9,10 +9,13 @@ export default makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '10px 50px',
+    backgroundColor: '#17153C',
   },
   heading: {
-    color: '#D35F74',
+    color: '#ffffff',
     textDecoration: 'none',
+    fontWeight: '500',
+    fontFamily: 'sans-serif',
   },
   image: {
     marginLeft: '15px',
@@ -30,6 +33,7 @@ export default makeStyles((theme) => ({
   userName: {
     display: 'flex',
     alignItems: 'center',
+    color: '#ffffff',
   },
   brandContainer: {
     display: 'flex',
@@ -39,4 +43,12 @@ export default makeStyles((theme) => ({
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],
   },
+  // logout: {
+  //   color: '#ffffff',
+  //   backgroundColor: '#1AAE63',
+  // },
+  // login: {
+  //   color: '#ffffff',
+  //   backgroundColor: '#1AAE63',
+  // },
 }));
