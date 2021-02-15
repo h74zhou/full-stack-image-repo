@@ -43,7 +43,7 @@ const NavBar = () => {
         {user ? (
           <div className={classes.profile}>
             <Typography className={classes.userName} variant='h6'>
-              {user.result.name}
+              Logged in as: {user.result.name}
             </Typography>
             <Button
               variant='contained'

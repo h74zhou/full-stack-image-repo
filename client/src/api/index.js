@@ -1,9 +1,13 @@
 import axios from 'axios';
 
-const url = 'https://full-stack-image-repo.herokuapp.com/posts';
+const API = axios.create({ baseURL: 'http://localhost:5000' });
 
-export const fetchPosts = () => axios.get(url);
-export const createPost = (newPost) => axios.post(url, newPost);
+// const url = 'https://full-stack-image-repo.herokuapp.com/posts';
+
+export const fetchPosts = () => API.get('/posts');
+export const createPost = (newPost) => API.post('/posts', newPost);
 export const updatePost = (id, updatedPost) =>
-  axios.patch(`${url}/${id}`, updatedPost);
-export const deletePost = (id) => axios.delete(`${url}/${id}`);
+  API.patch(`/posts/${id}`, updatedPost);
+export const deletePost = (id) => API.delete(`/posts/${id}`);
+export const login = (formData) => API.post('/users/login', formData);
+export const signup = (formData) => API.post('/users/signup', formData);

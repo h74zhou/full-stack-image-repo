@@ -12,7 +12,7 @@ import Icon from './Icon';
 import { GoogleLogin } from 'react-google-login';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { signin, login } from '../../actions/auth';
+import { signup, login } from '../../actions/auth';
 
 import useStyles from './styles';
 
@@ -30,14 +30,18 @@ function Auth() {
   const [formData, setFormData] = useState(initState);
   const [showPassword, setShowPassword] = useState(false);
   const history = useHistory();
+  const dispatch = useDispatch();
+  console.log(isSignup);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (isSignup) {
-      dispatchEvent(signup(formData, history));
+      console.log('dispatched sign up');
+      dispatch(signup(formData, history));
     } else {
-      dispatchEvent(login(formData, history));
+      console.log('dispatched login');
+      dispatch(login(formData, history));
     }
 
     console.log(formData);
@@ -52,8 +56,8 @@ function Auth() {
   };
 
   const switchSignUp = () => {
-    setIsSignup((prevIsSignup) => !prevIsSignup);
-    handleShowPassword(false);
+    setIsSignup(!isSignup);
+    setShowPassword(false);
   };
 
   const googleSuccess = (res) => {
@@ -98,6 +102,7 @@ function Auth() {
               name='password'
               label='Password'
               handleChange={handleChange}
+              handleShowPassword={handleShowPassword}
               type={showPassword ? 'text' : 'password'}
             />
             {isSignup && (
@@ -141,7 +146,7 @@ function Auth() {
           ></GoogleLogin>
           <Grid container justify='flex-end'>
             <Grid item>
-              <Button onClick={switchSignUp}>
+              <Button onClick={() => switchSignUp()}>
                 {isSignup
                   ? 'I already have an account'
                   : "I don't have an account"}
