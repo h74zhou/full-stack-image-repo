@@ -11,6 +11,8 @@ const Input = ({
   autoFocus,
   type,
   handleShowPassword,
+  error = false,
+  helperText,
 }) => (
   <Grid item xs={12} sm={half ? 6 : 12}>
     <TextField
@@ -20,6 +22,8 @@ const Input = ({
       required
       type={type}
       fullWidth
+      error={error}
+      helperText={error && helperText}
       label={label}
       InputLabelProps={{
         style: { color: '#fff' },

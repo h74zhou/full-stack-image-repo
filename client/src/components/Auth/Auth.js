@@ -1,12 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Button,
-  Paper,
-  Grid,
-  Typography,
-  Container,
-  TextField,
-} from '@material-ui/core';
+import { Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import Input from './Input';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -27,20 +20,24 @@ function Auth() {
   const [isSignup, setIsSignup] = useState(false);
   const [formData, setFormData] = useState(initState);
   const [showPassword, setShowPassword] = useState(false);
+  const [showError, setShowError] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
-  console.log(isSignup);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (isSignup) {
-      dispatch(signup(formData, history));
+      let result = await dispatch(signup(formData, history));
+      if (result === 'failed') {
+        setShowError(true);
+      }
     } else {
-      dispatch(login(formData, history));
+      let result = await dispatch(login(formData, history));
+      if (result === 'failed') {
+        setShowError(true);
+      }
     }
-
-    console.log(formData);
   };
 
   const handleChange = (e) => {
@@ -53,6 +50,7 @@ function Auth() {
 
   const switchSignUp = () => {
     setIsSignup(!isSignup);
+    setShowError(false);
     setShowPassword(false);
   };
 
@@ -85,6 +83,8 @@ function Auth() {
               label='Email Address'
               handleChange={handleChange}
               type='email'
+              error={showError}
+              helperText={!isSignup ? 'Incorrect credentials.' : 'Email Taken.'}
             />
             <Input
               name='password'
@@ -92,6 +92,8 @@ function Auth() {
               handleChange={handleChange}
               handleShowPassword={handleShowPassword}
               type={showPassword ? 'text' : 'password'}
+              error={!isSignup && showError}
+              helperText={!isSignup && 'Incorrect credentials.'}
             />
             {isSignup && (
               <Input
