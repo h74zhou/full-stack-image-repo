@@ -30,7 +30,7 @@ const Post = ({ post, setcurrentId }) => {
         {post.title}
       </Typography>
       <CardContent style={{ paddingTop: 0 }}>
-        <Typography variant='body2' color='textSecondary' component='p'>
+        <Typography variant='body2' color='textPrimary' component='p'>
           By: {post.name}
         </Typography>
       </CardContent>

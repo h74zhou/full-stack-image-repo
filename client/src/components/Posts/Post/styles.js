@@ -19,6 +19,7 @@ export default makeStyles({
     borderRadius: 0,
     height: '100%',
     position: 'relative',
+    color: '#fff',
   },
   overlay: {
     position: 'absolute',
@@ -48,5 +49,6 @@ export default makeStyles({
     padding: '0 16px 8px 16px',
     display: 'flex',
     justifyContent: 'space-between',
+    color: '#fff',
   },
 });

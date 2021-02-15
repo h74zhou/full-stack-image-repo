@@ -74,6 +74,9 @@ const Form = ({ currentId, setcurrentId }) => {
           fullWidth
           value={postData.title}
           onChange={(e) => setPostData({ ...postData, title: e.target.value })}
+          InputLabelProps={{
+            style: { color: '#fff' },
+          }}
         />
         <TextField
           name='message'
@@ -84,6 +87,9 @@ const Form = ({ currentId, setcurrentId }) => {
           onChange={(e) =>
             setPostData({ ...postData, message: e.target.value })
           }
+          InputLabelProps={{
+            style: { color: '#fff' },
+          }}
         />
         <div className={classes.fileInput}>
           <FileBase

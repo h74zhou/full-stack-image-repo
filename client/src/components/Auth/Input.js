@@ -21,13 +21,16 @@ const Input = ({
       type={type}
       fullWidth
       label={label}
+      InputLabelProps={{
+        style: { color: '#fff' },
+      }}
       autoFocus={autoFocus}
       InputProps={
         name === 'password'
           ? {
               endAdornment: (
                 <InputAdornment position='end'>
-                  <IconButton onClick={handleShowPassword}>
+                  <IconButton onClick={handleShowPassword} color='primary'>
                     {type === 'password' ? <Visibility /> : <VisibilityOff />}
                   </IconButton>
                 </InputAdornment>

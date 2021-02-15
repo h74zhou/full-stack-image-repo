@@ -43,12 +43,4 @@ export default makeStyles((theme) => ({
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],
   },
-  // logout: {
-  //   color: '#ffffff',
-  //   backgroundColor: '#1AAE63',
-  // },
-  // login: {
-  //   color: '#ffffff',
-  //   backgroundColor: '#1AAE63',
-  // },
 }));
