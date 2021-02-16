@@ -1,6 +1,6 @@
 # Full Stack Image Repo
 
-Welcome to my Full Stack Image Repository Project! This is a web app that allows a user to upload, view, delete and update images online! A user can store their favourite photos and caption it on the website for everyone to see! The app is also fully authenticated, so users will need to first create an account to post photos. They will also only be allowed to edit/delete their own images, but every user can see every post (similar to how Imgur works).
+Welcome to my Full Stack Image Repository Project! This is a web app that allows a user to upload, view, delete and update images online! A user can store their favourite photos and caption it on the website for everyone to see! The app is also fully authenticated, so users will need to first create an account to post photos. A user can only edit and delete their own images, but every user can see every post on the homepage (similar to how Imgur works).
 
 ## Project Outline
 
