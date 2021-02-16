@@ -48,7 +48,7 @@ Note that the Delete and Edit buttons will only appear for posts that the user h
 
 ### Tech Stack
 
-This project was built using the **MERN** stack. [ReactJS](https://reactjs.org/), [Redux](https://redux.js.org/) and the [Material UI Framework](https://material-ui.com/) was used to build out the front-end. Express and Node were used to construct the back-end functionalities, which include all the basic **CRUD** operations (Create, Read, Update, Delete). [MongoDB](https://www.mongodb.com/) was the database chosen to store all the post information (images, title, authour, etc). The app is also fully authenticated using [SON Web Token](https://jwt.io/). The passwords were encrypted using the npm package [bcrypt](https://www.npmjs.com/package/bcrypt). 
+This project was built using the **MERN** stack. [ReactJS](https://reactjs.org/), [Redux](https://redux.js.org/) and the [Material UI Framework](https://material-ui.com/) was used to build out the front-end. Express and Node were used to construct the back-end functionalities, which include all the basic **CRUD** operations (Create, Read, Update, Delete). [MongoDB](https://www.mongodb.com/) was the database chosen to store all the post information (images, title, authour, etc). The app is also fully authenticated using [JSON Web Token](https://jwt.io/). The passwords were encrypted using the npm package [bcrypt](https://www.npmjs.com/package/bcrypt). 
 
 As mentioned before, the front-end of the application was deployed using [Netlify](https://www.netlify.com/) at: https://full-stack-image-repo.netlify.app/. 
 
