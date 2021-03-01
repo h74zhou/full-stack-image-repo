@@ -88,7 +88,11 @@ const NavBar = ({ currentId, setcurrentId }) => {
                 justifyContent: 'center',
               }}
             >
-              <Form currentId={currentId} setcurrentId={setcurrentId} />
+              <Form
+                currentId={currentId}
+                setcurrentId={setcurrentId}
+                handleCloseModal={handleCloseModal}
+              />
             </Modal>
             <Button
               variant='contained'

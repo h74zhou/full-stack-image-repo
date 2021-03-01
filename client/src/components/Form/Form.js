@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './styles';
 import { createPost, updatePost } from '../../actions/posts';
 
-const Form = ({ currentId, setcurrentId }) => {
+const Form = ({ currentId, setcurrentId, handleCloseModal }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
@@ -34,9 +34,8 @@ const Form = ({ currentId, setcurrentId }) => {
     } else {
       dispatch(createPost({ ...postData, name: user?.result?.name }));
     }
-    if (currentId == null) {
-      clear();
-    }
+    clear();
+    handleCloseModal();
   };
 
   const clear = () => {
