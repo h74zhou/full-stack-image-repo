@@ -34,7 +34,9 @@ const Form = ({ currentId, setcurrentId }) => {
     } else {
       dispatch(createPost({ ...postData, name: user?.result?.name }));
     }
-    clear();
+    if (currentId == null) {
+      clear();
+    }
   };
 
   const clear = () => {

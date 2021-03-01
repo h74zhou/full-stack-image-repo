@@ -23,12 +23,19 @@ const NavBar = ({ currentId, setcurrentId }) => {
 
   const [openModal, setOpenModal] = useState(false);
 
+  useEffect(() => {
+    if (currentId) {
+      handleOpenModal();
+    }
+  }, [currentId]);
+
   const handleOpenModal = () => {
     setOpenModal(true);
   };
 
   const handleCloseModal = () => {
     setOpenModal(false);
+    setcurrentId(null);
   };
 
   useEffect(() => {
