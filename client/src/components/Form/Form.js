@@ -92,6 +92,8 @@ const Form = ({ currentId, setcurrentId }) => {
           }}
         />
         <div className={classes.fileInput}>
+          {/* // Use Cloud Based Servers // local file system (store path,
+          read/write from path) */}
           <FileBase
             type='file'
             multiple={false}

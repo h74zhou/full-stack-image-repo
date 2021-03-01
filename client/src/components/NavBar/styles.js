@@ -23,20 +23,21 @@ export default makeStyles((theme) => ({
   toolbar: {
     display: 'flex',
     justifyContent: 'flex-end',
-    width: '400px',
+    width: '500px',
   },
   profile: {
     display: 'flex',
     justifyContent: 'space-between',
-    width: '400px',
+    width: '500px',
   },
   userName: {
     display: 'flex',
     alignItems: 'center',
     color: '#ffffff',
+    width: '250px',
   },
   brandContainer: {
-    display: 'flex',
+    display: 'flex-start',
     alignItems: 'center',
   },
   purple: {

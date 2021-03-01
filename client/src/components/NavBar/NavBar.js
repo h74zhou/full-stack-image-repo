@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { AppBar, Typography, Toolbar, Button } from '@material-ui/core';
+import Modal from '@material-ui/core/Modal';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import decode from 'jwt-decode';
+import Form from '../Form/Form';
 
 import useStyles from './styles';
 
@@ -17,6 +19,16 @@ const NavBar = () => {
     dispatch({ type: 'LOGOUT' });
     history.push('/');
     setUser(null);
+  };
+
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
   };
 
   useEffect(() => {
@@ -44,7 +56,7 @@ const NavBar = () => {
           variant='h2'
           align='center'
         >
-          Full Stack Image Repo
+          Image Repo
         </Typography>
       </div>
       <Toolbar className={classes.toolbar}>
@@ -53,6 +65,16 @@ const NavBar = () => {
             <Typography className={classes.userName} variant='h6'>
               Logged in as: {user.result.name}
             </Typography>
+            <Button
+              variant='contained'
+              onClick={handleOpenModal}
+              color='primary'
+            >
+              Submit
+            </Button>
+            <Modal open={openModal} onClose={handleCloseModal}>
+              <Form />
+            </Modal>
             <Button
               variant='contained'
               className={classes.logout}
