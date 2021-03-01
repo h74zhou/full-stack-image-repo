@@ -51,7 +51,13 @@ const App = () => {
             <Route
               path='/'
               exact
-              render={(props) => <Home {...props} />}
+              render={(props) => (
+                <Home
+                  {...props}
+                  currentId={currentId}
+                  setcurrentId={setcurrentId}
+                />
+              )}
             ></Route>
             <Route path='/auth' exact component={Auth}></Route>
           </Switch>
