@@ -46,7 +46,7 @@ const App = () => {
     <BrowserRouter>
       <MuiThemeProvider theme={theme}>
         <Container maxidth='lg'>
-          <NavBar></NavBar>
+          <NavBar currentId={currentId} setcurrentId={setcurrentId}></NavBar>
           <Switch>
             <Route
               path='/'

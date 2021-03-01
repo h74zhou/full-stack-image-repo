@@ -8,7 +8,7 @@ import Form from '../Form/Form';
 
 import useStyles from './styles';
 
-const NavBar = () => {
+const NavBar = ({ currentId, setcurrentId }) => {
   const classes = useStyles();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const dispatch = useDispatch();
@@ -72,8 +72,16 @@ const NavBar = () => {
             >
               Submit
             </Button>
-            <Modal open={openModal} onClose={handleCloseModal}>
-              <Form />
+            <Modal
+              open={openModal}
+              onClose={handleCloseModal}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <Form currentId={currentId} setcurrentId={setcurrentId} />
             </Modal>
             <Button
               variant='contained'
