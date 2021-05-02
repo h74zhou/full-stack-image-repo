@@ -4,7 +4,7 @@ Welcome to my Full Stack Image Repository Project! This is a web app that allows
 
 ## Project Outline
 
-This project is currently deployed on Netlify and can be seen on this link: https://full-stack-image-repo.netlify.app/
+This project is currently deployed on Netlify and can be seen on this link: https://image-repo-full-stack.netlify.app/
 
 ### Features
 
@@ -24,11 +24,11 @@ However, if they don't have an account, they can click the "I don't have an acco
 
 #### Creating a post 
 
-Once a user has logged in, they can begin to create a post by filling out the form's information. This includes uploading their image, giving the image a title and a message, and then pressing submit!
+Once a user has logged in, they can begin to create a post by pressing the submit button on the header. A pop-up modal should appear allowing the user to make a submission. All the user needs to do is upload their image, give the image a title and a message, and then press submit!
 
 ![submitPost](/images/submit.gif)
 
-Once they click submit, they should see their new post populated onto the repository. The images are displayed in card form, with the photo title, authour and description underneath it. Users can submit as many photos as they want, and the photos will be placed left to right (column alignment). 
+Once they click submit, they should see their new post populated onto the repository. The images are displayed in card form, with the photo title, authour and description underneath it. 
 
 <img src="/images/threeposts.png">
 
@@ -40,7 +40,7 @@ Each card has a delete button associated with it. If the user no longer wants to
 
 #### Editing a post
 
-Each card also has an edit button associated with it. If the user wants to change the post they made prior, they can click on the edit button and the form component on the right will automatically populate with the old post's information. The user can then choose to update the image post however they want and press submit. 
+Each card also has an edit button associated with it. If the user wants to change the post they made prior, they can click on the edit button and the form modal component will pop up again. The user can then choose to update the image post however they want and press submit. 
 
 ![editPost](/images/edit.gif)
 
@@ -50,7 +50,7 @@ Note that the Delete and Edit buttons will only appear for posts that the user h
 
 This project was built using the **MERN** stack. [ReactJS](https://reactjs.org/), [Redux](https://redux.js.org/) and the [Material UI Framework](https://material-ui.com/) was used to build out the front-end. Express and Node were used to construct the back-end functionalities, which include all the basic **CRUD** operations (Create, Read, Update, Delete). [MongoDB](https://www.mongodb.com/) was the database chosen to store all the post information (images, title, authour, etc). The app is also fully authenticated using [JSON Web Token](https://jwt.io/). The passwords were encrypted using the npm package [bcrypt](https://www.npmjs.com/package/bcrypt). 
 
-As mentioned before, the front-end of the application was deployed using [Netlify](https://www.netlify.com/) at: https://full-stack-image-repo.netlify.app/. 
+As mentioned before, the front-end of the application was deployed using [Netlify](https://www.netlify.com/) at: https://image-repo-full-stack.netlify.app/. 
 
 The front-end makes requests to the back-end which was deployed using [Heroku](https://www.heroku.com/) at: https://full-stack-image-repo.herokuapp.com/posts.
 
