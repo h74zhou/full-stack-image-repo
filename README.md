@@ -46,7 +46,7 @@ Each card also has an edit button associated with it. If the user wants to chang
 
 Note that the Delete and Edit buttons will only appear for posts that the user has created. These buttons will not be present for posts created by another user! As such, a user needs to be logged in (authenticated) before they can create/edit/delete any images!
 
-### Tech Stack
+## Tech Stack
 
 This project was built using the **MERN** stack. [ReactJS](https://reactjs.org/), [Redux](https://redux.js.org/) and the [Material UI Framework](https://material-ui.com/) was used to build out the front-end. Express and Node were used to construct the back-end functionalities, which include all the basic **CRUD** operations (Create, Read, Update, Delete). [MongoDB](https://www.mongodb.com/) was the database chosen to store all the post information (images, title, authour, etc). The app is also fully authenticated using [JSON Web Token](https://jwt.io/). The passwords were encrypted using the npm package [bcrypt](https://www.npmjs.com/package/bcrypt). 
 
